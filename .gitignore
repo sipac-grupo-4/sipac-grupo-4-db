@@ -1,0 +1,49 @@
+# ==========================================
+# Environment & Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+!.env.example
+secrets/
+*.pem
+*.key
+*.crt
+*.p12
+
+# ==========================================
+# Docker & Container Artifacts
+# ==========================================
+.docker/
+docker-compose.override.yml
+*.log
+*.pid
+
+# ==========================================
+# Backups & Dumps (Keep dir, ignore files)
+# ==========================================
+backups/*.sql
+backups/*.dump
+backups/*.tar
+backups/*.gz
+backups/*.bak
+!backups/.gitkeep
+
+# ==========================================
+# OS, Editors & IDE
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.code-workspace
+
+# ==========================================
+# Migration/Tooling Temp Files
+# ==========================================
+.migrations/
+*.sock
+*.tmp

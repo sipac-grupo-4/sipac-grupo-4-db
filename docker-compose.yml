@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:18.3-trixie
+    container_name: sipac-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER:-appuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-devpassword123}
+      POSTGRES_DB: ${DB_NAME:-appdb}
+    volumes:
+      - db_data:/var/lib/postgresql
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-appuser} -d ${DB_NAME:-appdb} -h localhost || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - app-network
+
+  pooler:
+    image: edoburu/pgbouncer:v1.25.1-p0
+    environment:
+      DB_USER: ${DB_USER:-appuser}
+      DB_PASSWORD: ${DB_PASSWORD:-devpassword123}
+      DB_NAME: ${DB_NAME:-appdb}
+      DB_HOST: db
+      DB_PORT: 5432
+      POOL_MODE: transaction
+      MAX_CLIENT_CONN: 100
+      DEFAULT_POOL_SIZE: 20
+    ports:
+      - "6432:5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
+
