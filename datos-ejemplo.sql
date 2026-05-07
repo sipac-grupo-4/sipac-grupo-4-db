@@ -48,15 +48,15 @@ INSERT INTO tipos_documentos (nombre) VALUES
 -- contraseña almacenada como hash bcrypt (valor de ejemplo)
 -- En producción el backend genera el hash real
 -- =============================================================
-INSERT INTO usuarios (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, email, contrasena, rol_id, estado_id) VALUES
-    ('Carlos',   'Andrés',  'Ramírez',   'Gómez',    'carlos.ramirez@sipac.edu.co',   '$2b$12$examplehash1', 1, 1),  -- Administrador
-    ('María',    'Isabel',  'López',     'Torres',   'maria.lopez@sipac.edu.co',      '$2b$12$examplehash2', 2, 1),  -- Instructor
-    ('Juan',     NULL,      'Martínez',  'Herrera',  'juan.martinez@sipac.edu.co',    '$2b$12$examplehash3', 2, 1),  -- Instructor
-    ('Luisa',    'Fernanda','Peña',      'Castillo', 'luisa.pena@sipac.edu.co',       '$2b$12$examplehash4', 3, 1),  -- Coordinador
-    ('Andrés',   NULL,      'Vargas',    'Moreno',   'andres.vargas@sipac.edu.co',    '$2b$12$examplehash5', 2, 1),  -- Instructor
-    ('Paola',    'Andrea',  'Rodríguez', NULL,       'paola.rodriguez@sipac.edu.co',  '$2b$12$examplehash6', 4, 1),  -- Apoyo
-    ('Felipe',   NULL,      'García',    'Ruiz',     'felipe.garcia@sipac.edu.co',    '$2b$12$examplehash7', 2, 3),  -- Instructor Pendiente
-    ('Sandra',   'Milena',  'Díaz',      'Ospina',   'sandra.diaz@sipac.edu.co',      '$2b$12$examplehash8', 2, 2);  -- Instructor Inactivo
+INSERT INTO usuarios (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, numero_registro, siif, cedula, email, contrasena, rol_id, estado_id) VALUES
+    ('Carlos',   'Andrés',  'Ramírez',   'Gómez',    10001, 2024001, 1234567890, 'carlos.ramirez@sipac.edu.co',   '$2b$12$examplehash1', 1, 1),  -- Administrador
+    ('María',    'Isabel',  'López',     'Torres',   10002, 2024002, 1234567891, 'maria.lopez@sipac.edu.co',      '$2b$12$examplehash2', 2, 1),  -- Instructor
+    ('Juan',     NULL,      'Martínez',  'Herrera',  10003, 2024003, 1234567892, 'juan.martinez@sipac.edu.co',    '$2b$12$examplehash3', 2, 1),  -- Instructor
+    ('Luisa',    'Fernanda','Peña',      'Castillo', 10004, 2024004, 1234567893, 'luisa.pena@sipac.edu.co',       '$2b$12$examplehash4', 3, 1),  -- Coordinador
+    ('Andrés',   NULL,      'Vargas',    'Moreno',   10005, 2024005, 1234567894, 'andres.vargas@sipac.edu.co',    '$2b$12$examplehash5', 2, 1),  -- Instructor
+    ('Paola',    'Andrea',  'Rodríguez', NULL,       10006, 2024006, 1234567895, 'paola.rodriguez@sipac.edu.co',  '$2b$12$examplehash6', 4, 1),  -- Apoyo
+    ('Felipe',   NULL,      'García',    'Ruiz',     10007, 2024007, 1234567896, 'felipe.garcia@sipac.edu.co',    '$2b$12$examplehash7', 2, 3),  -- Instructor Pendiente
+    ('Sandra',   'Milena',  'Díaz',      'Ospina',   10008, 2024008, 1234567897, 'sandra.diaz@sipac.edu.co',      '$2b$12$examplehash8', 2, 2);  -- Instructor Inactivo
 
 -- =============================================================
 -- 6. FICHAS
